@@ -39,6 +39,7 @@
 #define HCI_UART_H4DS	3
 #define HCI_UART_LL	4
 #define HCI_UART_ATH3K  5
+#define HCI_UART_STE    6
 #define HCI_UART_INTEL	6
 #define HCI_UART_BCM	7
 
