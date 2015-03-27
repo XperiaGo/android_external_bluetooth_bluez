@@ -250,7 +250,11 @@ static void pin_request_answer(char *reply)
 }
 
 static void pin_request_cb(bt_bdaddr_t *remote_bd_addr, bt_bdname_t *bd_name,
+#ifdef NEEDS_SAP_CHANGES
+								uint32_t cod, uint8_t secure)
+#else
 								uint32_t cod)
+#endif
 {
 	/* Store for command completion */
 	bt_bdaddr_t2str(remote_bd_addr, last_remote_addr);
