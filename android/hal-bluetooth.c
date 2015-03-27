@@ -249,7 +249,12 @@ static void handle_pin_request(void *buf, uint16_t len, int fd)
 	DBG("");
 
 	if (bt_hal_cbacks->pin_request_cb)
+#ifdef NEEDS_SAP_CHANGES
+		/* pass 0 for secure mode */
+		bt_hal_cbacks->pin_request_cb(addr, name, ev->class_of_dev, 0);
+#else
 		bt_hal_cbacks->pin_request_cb(addr, name, ev->class_of_dev);
+#endif
 }
 
 static void handle_ssp_request(void *buf, uint16_t len, int fd)
